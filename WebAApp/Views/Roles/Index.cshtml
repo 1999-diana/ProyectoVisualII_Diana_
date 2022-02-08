@@ -1,0 +1,74 @@
+﻿@using Modelo.Entidades;
+
+@model IEnumerable<Roles>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Lista de Roles</h1>
+<p>A continuación se presenta la lista de Roles</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Biometricos</h3>
+        </div>
+        <div class="col-sm-6">
+            <a asp-controller="Roles" asp-action="Create" class="btn btn-success d-block">Agregar nuevo Rol</a>
+        </div>
+    </div>
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">
+                    &times;
+                </span>
+            </button>
+        </div>
+    }
+
+    <div class="row">
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Empleado</td>
+                    <td>Comision</td>
+                    <td>Aportes al Iess</td>
+                    <td>Anticipos de la Empresa</td>
+                    <td>Total a Pagar</td>
+                    <td>Acciones</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Roles biometrico in Model)
+                {
+                <tr>
+                    <td>@biometrico.RolesId</td>
+                    <td>@biometrico.Personal.Nombre</td>
+                    <td>@biometrico.comision</td>
+                    <td>@biometrico.aporte_iess</td>
+                    <td>@biometrico.anticipo</td>
+                    <td>@biometrico.total</td>
+                    
+                    <td>
+                        <a asp-controller="Roles" asp-action="Edit" asp-route-id="@biometrico.RolesId" class="btn btn-primary">Editar</a>
+                        <a asp-controller="Roles" asp-action="Delete" asp-route-id="@biometrico.RolesId" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+

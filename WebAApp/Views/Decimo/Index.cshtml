@@ -1,0 +1,74 @@
+﻿@using Modelo.Entidades;
+
+@model IEnumerable<Decimo_Tercero>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Lista de Decimos</h1>
+<p>A continuación se presenta la lista de Decimos</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Empresas</h3>
+        </div>
+        <div class="col-sm-6">
+            <a asp-controller="Decimo" asp-action="Create" class="btn btn-success d-block">Agregar nuevo Decimo</a>
+        </div>
+    </div>
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">
+                    &times;
+                </span>
+            </button>
+        </div>
+    }
+
+    <div class="row">
+
+        <table  class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Empleado</td>
+                    <td>Fecha Inicio</td>
+                    <td>Fecha Final</td>
+                    <td>Meses</td>
+                    <td>Total </td>
+                    
+                    <td>Acciones</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Decimo_Tercero biometrico in Model)
+                {
+                <tr>
+                    <td>@biometrico.Decimo_TerceroId</td>
+                    <td>@biometrico.Personal.Nombre</td>
+                     <td>@biometrico.fecha_inicio</td>
+                     <td>@biometrico.fecha_final</td>
+                    <td>@biometrico.meses</td>
+                    <td>@biometrico.total</td>
+                    
+                 <td>
+                        <a asp-controller="Decimo" asp-action="Edit" asp-route-id="@biometrico.Decimo_TerceroId" class="btn btn-primary">Editar</a>
+                        <a asp-controller="Decimo" asp-action="Delete" asp-route-id="@biometrico.Decimo_TerceroId" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

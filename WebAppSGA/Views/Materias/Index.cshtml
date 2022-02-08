@@ -1,0 +1,53 @@
+﻿@using Modelo.Entidades
+
+@model IEnumerable<Materia>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>MATERIAS</h1>
+<p>A continuación se presenta la lista de materias del Sistema Académico</p>
+
+<div class = "container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>lista de Materias</h3>
+        </div>
+        <div class="col-sm-6">
+            <a class="btn btn-success d-block">
+                Crear nueva materia
+            </a>
+        </div>
+    </div>
+
+    <div class = "row">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Nombre</td>
+                    <td>Área</td>
+                    <td>Créditos</td>
+                    <td>Acciones</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(Materia materia in Model)
+                {
+                    <tr>
+                        <td>@materia.MateriaId</td>
+                        <td>@materia.Nombre</td>
+                        <td>@materia.Area</td>
+                        <td>@materia.Creditos</td>
+                        <td>
+                            Editar, Borrar
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

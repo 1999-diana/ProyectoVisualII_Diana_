@@ -1,0 +1,72 @@
+﻿@using Modelo.Entidades
+
+@model Personal
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edicion de Personal</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>
+                Editar Personal
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <form asp-action="Edit" method="post">
+                <input type="text" asp-for="PersonalId" hidden />
+<div class="form-group">
+                    <label class="custom-control-label">Nombre Empleado: </label>
+                    <input class="form-control" type="text" asp-for="Nombre" />
+                </div>
+                <div class="form-group">
+                    <label class="custom-control-label">Cedula Empleado: </label>
+                    <input class="form-control" maxlength="10" type="text" asp-for="Cedula" />
+                </div>
+                <div class="form-group">
+                    <label class="custom-control-label">Email Empleado: </label>
+                    <input class="form-control" type="text" asp-for="Email" />
+                </div>
+                <div class="form-group">
+                    <label class="custom-control-label">Telefono Empleado: </label>
+                    <input class="form-control" maxlength="10" type="text" asp-for="Telefono" />
+                </div>
+                <div class="form-group">
+                    <label class="custom-control-label">Direccion Empleado: </label>
+                    <input class="form-control" type="text" asp-for="Direccion" />
+                </div>
+                <div class="form-group">
+                    <label class="custom-control-label">Estado Civil Empleado: </label>
+                    <input class="form-control" type="text" asp-for="EstadoCV" />
+                </div>
+               <div class="form-group">
+                    <label class="custom-control-label">Salario Empleado: </label>
+                    <input class="form-control" type="text" asp-for="salario" />
+                </div>
+                 <div class="form-group">
+                    <label class="custom-control-label">Tipo Contrato Empleado: </label>
+                    <input class="form-control" type="text" asp-for="tipo" />
+                </div>
+                <div class="form-group">
+                    <label class="custom-control-label">Fecha De Inicio Del Empleado: </label>
+                    <input class="form-control" type="date" asp-for="fecha_incio" />
+                </div>
+               <div class="form-group">
+                    <label class="custom-control-label">Fecha De Salida Del Empleado: </label>
+                    <input class="form-control" type="date" asp-for="fecha_salida" />
+                </div>
+
+
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Actualizar Personal" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

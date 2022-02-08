@@ -1,0 +1,64 @@
+﻿@using Modelo.Entidades
+@model IEnumerable<Salario>
+
+@{
+    ViewData["Title"] = "Lista de Salarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Salarios</h1>
+
+<div class="container">
+
+    @*Mensaje de confirmación*@
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">
+                    &times;
+                </span>
+            </button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Lista de Salarios</h3>
+        </div>        
+    </div>
+
+    <div class="row">
+        @if (Model.Count() >0)
+        {
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr> 
+                        <td>Id</td>
+                        <td>Nombre</td>
+                      
+                        <td>Créditos</td>
+                        <td>Acciones</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.decterceros.total</td>
+                            <td>@item.Personal.Nombre</td>
+                            <td>@item.EstadoSal</td>
+                            <td>
+                                <a class="btn btn-warning"
+                                    asp-controller="Salario" asp-action="Validar" asp-route-id="@item.SalarioId">
+                                    Ver
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

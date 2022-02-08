@@ -1,0 +1,59 @@
+﻿@using Modelo.Entidades
+
+@model Empresa
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edicion de Empresa</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>
+                Editar Empresa
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <form asp-action="Edit" method="post">
+                <input type="text" asp-for="EmpresaId" hidden />
+
+                <div class="form-group">
+                    <label class="custom-control-label">Ruc: </label>
+                    <input class="form-control" type="" asp-for="ruc" />
+                </div>
+                <div class="form-group">
+                    <label class="custom-control-label">Nombre Empresa: </label>
+                    <input class="form-control" type="text" asp-for="nombreEmpresa" />
+                </div>
+                <div class="form-group">
+                    <label class="custom-control-label">Direccion: </label>
+                    <input class="form-control" type="text" asp-for="direccion" />
+                </div>
+                <div class="form-group">
+                    <label class="custom-control-label">Telefono: </label>
+                    <input class="form-control" maxlength="10" type="text" asp-for="telefono" />
+                </div>
+                <div class="form-group">
+                    <label class="custom-control-label">Provincia: </label>
+                    <input class="form-control" type="text" asp-for="provincia" />
+                </div>
+                <div class="form-group">
+                    <label class="custom-control-label">Empleado: </label>
+                    <select class="form-control"
+                            asp-for="PersonalId" asp-items="@ViewBag.selectListEmpleados">
+                        <option value="">--Seleccione un empleado---</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Actualizar Empresa" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

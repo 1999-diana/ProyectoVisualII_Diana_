@@ -1,0 +1,54 @@
+﻿@using Modelo.Entidades
+
+@model Liquidaciones
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Eliminar de Liquidaciones</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>
+                Eliminar Liquidaciones
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <form asp-action="Delete" method="post">
+                <input type="text" asp-for="LiquidacionesId" hidden />
+
+                <div class="form-group">
+                    <label class="custom-control-label">Perido de Cesantia: </label>
+                    <input class="form-control" type="text" asp-for="cesantia" disabled />
+                </div>
+                <div class="form-group">
+                    <label class="custom-control-label">Periodo Prima: </label>
+                    <input class="form-control" type="text" asp-for="periodo_pri" disabled />
+                </div>
+                <div class="form-group">
+                    <label class="custom-control-label">Salario Base: </label>
+                    <input class="form-control" type="text" asp-for="salario_base" disabled />
+                </div>
+                 <div class="form-group">
+                    <label class="custom-control-label">Estado Liquidacion: </label>
+                    <input class="form-control" maxlength="10" type="text" asp-for="Estadoliq" />
+                </div>
+               
+                <div class="form-group">
+                    <label class="custom-control-label">Empleado: </label>
+                    <select class="form-control"
+                            asp-for="PersonalId" asp-items="@ViewBag.selectListEmpleados" disabled>
+                        <option value="">--Seleccione un empleado---</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Eliminar Liquidacion" />
+                </div>
+            </form>
+        </div>
+    </div>

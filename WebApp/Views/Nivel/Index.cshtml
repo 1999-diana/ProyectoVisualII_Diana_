@@ -1,0 +1,77 @@
+﻿@using Modelo.Entidades
+
+@model IEnumerable<Nivel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Mallas y Niveles</h1>
+
+<div class="container">
+
+    @*Mensaje de confirmación*@
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">
+                    &times;
+                </span>
+            </button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Lista de Niveles</h3>
+        </div>
+        <div class="col-sm-6">
+            <a class="btn btn-success d-block"
+                asp-controller="Nivel" asp-action="Create" >
+                Crear nuevo nivel
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        @if (Model.Count() >0)
+        {
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr> 
+                        <td>Malla Id</td>
+                        <td>Nombre</td>
+                        <td>Orden</td>
+                        <td>Materia Id</td>
+                        <td>Materia</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.MallaId</td>
+                            <td>@item.Nombre</td>
+                            <td>@item.Orden</td>
+                            <td>@item.MallaId</td>                            
+                            <td>@item.Materia.Nombre</td>
+                            <td>
+                                <a class="btn btn-warning"
+                                    asp-controller="Nivel" asp-action="Edit" asp-route-id="@item.MallaId">
+                                    Editar
+                                </a>
+                                <a class="btn btn-danger"
+                                    asp-controller="Nivel" asp-action="Delete" asp-route-id="@item.MateriaId">
+                                    Borrar
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

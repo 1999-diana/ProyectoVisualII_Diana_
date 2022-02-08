@@ -1,0 +1,85 @@
+﻿@using Modelo.Entidades
+@model IEnumerable<Personal>
+
+@{
+    ViewData["Title"] = "Lista de Personal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1> Lista Personal</h1>
+<p>A continuación se presenta la lista deL Personal</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Personal</h3>
+        </div>
+        <div class="col-sm-6">
+            <a asp-controller="Personal" asp-action="Create" class="btn btn-success d-block">Agregar nuevo Personal</a>
+        </div>
+    </div>
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">
+                    &times;
+                </span>
+            </button>
+        </div>
+    }
+
+    <div class="row">
+        @if (Model.Count() >0)
+        {
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr> 
+                        <td>Id</td>
+                        <td>Nombre</td>
+                        <td>Cedula</td>
+                        <td>Email</td>
+                         <td>Telefono</td>
+                          <td>Direccion</td>
+                           <td>Estado Civil</td>
+                            <td>Salario</td>
+                            <td>Tipo Contrato</td>
+                            <td>Fecha Inicio</td>
+                            <td>Fecha Salida</td>
+                        <td>Acciones</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.PersonalId</td>
+                            <td>@item.Nombre</td>
+                            <td>@item.Cedula</td>
+                            <td>@item.Email</td>
+                            <td>@item.Telefono</td>
+                            <td>@item.Direccion</td>
+                            <td>@item.EstadoCV</td>
+                            <td>@item.salario</td>
+                            <td>@item.tipo</td>
+                            <td>@item.fecha_incio</td>
+                            <td>@item.fecha_salida</td>
+                            
+                            
+                            <td>
+                                <a class="btn btn-warning"
+                                    asp-controller="Personal" asp-action="Edit" asp-route-id="@item.PersonalId">
+                                    Editar
+                                </a>
+                                <a class="btn btn-danger"
+                                    asp-controller="Personal" asp-action="Delete" asp-route-id="@item.PersonalId">
+                                    Borrar
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

@@ -1,0 +1,72 @@
+﻿@using Modelo.Entidades;
+
+@model IEnumerable<Liquidaciones>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Lista de Liquidaciones</h1>
+<p>A continuación se presenta la lista de Liquidaciones</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Liquidaciones</h3>
+        </div>
+        <div class="col-sm-6">
+            <a asp-controller="Liquidacion" asp-action="Create" class="btn btn-success d-block">Agregar nueva Liquidacion</a>
+        </div>
+    </div>
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">
+                    &times;
+                </span>
+            </button>
+        </div>
+    }
+
+    <div class="row">
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Empleado</td>
+                    <td>Periodo De Cesantia</td>
+                    <td>Perido Prima</td>
+                    <td>Salario Base</td>
+                     <td>Estado Liquidacion</td>
+                    <td>Acciones</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Liquidaciones biometrico in Model)
+                {
+                <tr>
+                    <td>@biometrico.LiquidacionesId</td>
+                    <td>@biometrico.Personal.Nombre</td>
+                    <td>@biometrico.cesantia</td>
+                    <td>@biometrico.periodo_pri</td>
+                    <td>@biometrico.salario_base</td>
+                     <td>@biometrico.Estadoliq</td>
+                    <td>
+                        <a asp-controller="Liquidacion" asp-action="Edit" asp-route-id="@biometrico.LiquidacionesId" class="btn btn-primary">Editar</a>
+                        <a asp-controller="Liquidacion" asp-action="Delete" asp-route-id="@biometrico.LiquidacionesId" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Modelo.Entidades.Configuracion">
+    <Position X="0.5" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAASAAAAAAACAAAAAIAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Entidades\Configuracion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Entidades.Materia">
+    <Position X="0.5" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEIAAAAQAAAAACACAAgAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Entidades\Materia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Entidades.Periodo">
+    <Position X="3" Y="6" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAwAAAAAAAAAAgAAAAgAAAAAAAAAAAAAgAAg=</HashCode>
+      <FileName>Entidades\Periodo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Modelo.Entidades.Prerequisito">
+    <Position X="6" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAACAAAAAAAAAAQAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Entidades\Prerequisito.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Entidades.Nivel">
+    <Position X="8.5" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAACAAAAgAAAAAQAAAAAAAAAAAAQAAI=</HashCode>
+      <FileName>Entidades\Nivel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Entidades.Decimo_Tercero">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAQAAAAAAAAAAAABBAAAAEAAEAIAAAA=</HashCode>
+      <FileName>Entidades\Decimo_Tercero.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Entidades.Empresa">
+    <Position X="3" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AIAAAgAAAAAAIAQAAAAIAAAAAAAABAACAAAAAAAAAAI=</HashCode>
+      <FileName>Entidades\Empresa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Entidades.Liquidaciones">
+    <Position X="5.5" Y="0.5" Width="2.25" />
+    <NestedTypes>
+      <Enum Name="Modelo.Entidades.Liquidaciones.estado" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Entidades\Liquidaciones.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAgAEAQAAAAABAAAAAIABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entidades\Liquidaciones.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Entidades.Personal">
+    <Position X="8" Y="0.5" Width="2.25" />
+    <NestedTypes>
+      <Enum Name="Modelo.Entidades.Personal.EstadoCivil" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Entidades\Personal.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="Modelo.Entidades.Personal.TipoContrato" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Entidades\Personal.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QAAABAAQACAAAAYAACAAgAAAAgQABAAABAgAAgAAAAg=</HashCode>
+      <FileName>Entidades\Personal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Entidades.Roles">
+    <Position X="3.5" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AgAIAAAAAAAAAAwAAAAAAAAAAAAABAAAAEAAAAEAAAA=</HashCode>
+      <FileName>Entidades\Roles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

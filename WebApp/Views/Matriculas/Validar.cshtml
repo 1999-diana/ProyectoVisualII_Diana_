@@ -1,0 +1,89 @@
+﻿@using Modelo.Entidades
+
+@model Matricula
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Matrícula</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <form method="post" asp-action="Validar">
+                <div class="form-group">
+                    <label class="control-label">Matrícula Id</label>
+                    <input class="form-control" asp-for="MatriculaId" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Carrera</label>
+                    <input class="form-control" asp-for="Carrera.Nombre" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Período</label>
+                    <input class="form-control" asp-for="Periodo.Nombre" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Estudiante</label>
+                    <input class="form-control" asp-for="Estudiante.Nombre" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Estado</label>
+                    <input class="form-control" asp-for="Estado" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Validar" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+
+        <div class="col-sm-8">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr> 
+                            <td>Curso</td>
+                            <td>Materia</td>
+                            <td>Jornada</td>
+                            <td>Nota 1</td>
+                            <td>Nota 2</td>
+                            <td>Nota 3</td>
+                            <td>Nota Final</td>
+                            <td>Aprobado</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Matricula_Dets)
+                        {
+                            <tr>
+                                <td>@item.Curso.Nombre</td>
+                                <td>@item.Curso.Materia.Nombre</td>
+                                <td>@item.Curso.Jornada</td>
+                            @if(item.Calificacion != null)
+                            {
+                                <td>@item.Calificacion.Nota1</td>
+                                <td>@item.Calificacion.Nota2</td>
+                                <td>@item.Calificacion.Nota3</td>
+                                <td>@ViewBag.CalcCalificaciones.NotaFinal(item.Calificacion)</td>
+                                <td>@ViewBag.CalcCalificaciones.Aprobado(item.Calificacion)</td>
+                            }
+                            else
+                            {
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            }
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+        </div>
+    </div>
+
+
+
+</div>
+
