@@ -7,7 +7,7 @@ namespace Consola
     public class AcademiaDBBuilder
     {
         const string DBTipo = "DBTipo";
-        enum DBTipoConn { SqlServer, Postgres, Memoria }
+        enum DBTipoConn { SqlServer, Postgres,MySql ,Memoria }
         static AcademiaDB db ;
 
         public static AcademiaDB Crear()
@@ -40,6 +40,12 @@ namespace Consola
                 case nameof(DBTipoConn.Postgres):
                     contextOptions = new DbContextOptionsBuilder<AcademiaDB>()
                         .UseNpgsql(conn)
+                        .Options;
+                    break;
+                    
+                case nameof(DBTipoConn.MySql):
+                    contextOptions = new DbContextOptionsBuilder<AcademiaDB>()
+                        .UseMySQL(conn)
                         .Options;
                     break;
                 default: // Por defecto usa la memoria como base de datos

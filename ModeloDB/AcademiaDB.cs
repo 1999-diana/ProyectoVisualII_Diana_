@@ -46,8 +46,8 @@ namespace ModeloDB
                            " Username = postgres;" +
                            " Password = 17001";
                 options.UseNpgsql(conPG);*/
-                // options.UseMySQL("server=localhost;database=Proyecto;user=root;password=1234");
-                options.UseSqlServer("Server=DESKTOP-OAT5MPN; Initial Catalog=NominaProyecto1; trusted_connection=true;");
+                options.UseMySQL("server=localhost;database=Proyecto;user=root;password=1234");
+               //options.UseSqlServer("Server=DESKTOP-OAT5MPN; Initial Catalog=NominaProyecto1; trusted_connection=true;");
                 //.LogTo(Console.WriteLine, LogLevel.Information);  // Para activar el modo debug
             }
         }

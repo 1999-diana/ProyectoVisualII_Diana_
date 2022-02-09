@@ -9,7 +9,7 @@ using ModeloDB;
 namespace ModeloDB.Migrations
 {
     [DbContext(typeof(AcademiaDB))]
-    [Migration("20220208203656_ini")]
+    [Migration("20220208205906_ini")]
     partial class ini
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
